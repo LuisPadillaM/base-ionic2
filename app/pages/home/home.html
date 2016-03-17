@@ -1,0 +1,77 @@
+<ion-navbar *navbar>
+  <ion-title>Home</ion-title>
+  <ion-buttons end>
+    <button (click)="openSearchPage()">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="page-home">
+  <scroll-content>
+    <!-- <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)" placeholder="search for something?"></ion-searchbar> -->
+
+    <div padding>
+      <ion-segment [(ngModel)]="hash">
+        <ion-segment-button value="my">
+          My feed
+        </ion-segment-button>
+        <ion-segment-button value="popular">
+          Popular
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="hash">
+      <ion-list *ngSwitchWhen="'my'">
+
+        <ion-card *ngFor="#item of items">
+          <ion-item>
+            <ion-avatar item-left>
+              <img src="{{item.username.picture}}">
+            </ion-avatar>
+            <h2>{{item.username.fullname}}</h2>
+            <p>{{item.product.date}}</p>
+            <ion-badge item-right>{{item.product.price}}</ion-badge>
+          </ion-item>
+
+          <img src="{{item.product.picture}}">
+
+          <ion-card-content>
+            <p>{{item.product.description}}</p>
+          </ion-card-content>
+
+          <ion-item>
+            <button primary clear item-left>
+              <ion-icon name="ionic"></ion-icon>
+              <div>{{item.product.remerch}}</div>
+            </button>
+            <button primary clear item-left>
+              <ion-icon name="ios-heart"></ion-icon>
+              <div>{{item.product.likes}}</div>
+            </button>
+            <button primary clear item-left>
+              <ion-icon name="bookmark"></ion-icon>
+              <div>{{item.product.bookmark}}</div>
+            </button>
+            <ion-note item-right>
+              {{item.product.timeago}}
+            </ion-note>
+          </ion-item>
+        </ion-card>
+
+      </ion-list>
+
+      <ion-list *ngSwitchWhen="'popular'">
+        <ion-item>
+          <ion-thumbnail item-left>
+            <img src="https://avatars3.githubusercontent.com/u/1598461?v=3&s=460">
+          </ion-thumbnail>
+          <h2>Loooool !!!</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </scroll-content>
+
+</ion-content>
