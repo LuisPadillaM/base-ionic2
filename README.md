@@ -55,6 +55,7 @@ base-ionic-ts/
 │   │   │       └── spinner.scss       * SpinnerComponent stylesheet
 │   │   │
 │   │   ├── services                   * Will contains global services
+│   │   │   └── feed.ts                * Contains feed service
 │   │   │
 │   ├── pages/                         * Contains all of our pages
 │   │   ├── home/                      * Home tab page

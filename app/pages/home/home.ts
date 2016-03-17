@@ -1,5 +1,5 @@
 import {Page, NavController} from 'ionic-angular';
-import {FeedService} from '../../services/feed';
+import {FeedService} from '../../global/services/feed';
 import {SearchPage} from '../search/search';
 
 @Page({
