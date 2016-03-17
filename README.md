@@ -54,7 +54,7 @@ base-ionic-ts/
 │   │   │       └── spinner.ts         * SpinnerComponent code
 │   │   │       └── spinner.scss       * SpinnerComponent stylesheet
 │   │   │
-│   │   ├── services                   * Will contains global services
+│   │   ├── services                   * Contains global services
 │   │   │   └── feed.ts                * Contains feed service
 │   │   │
 │   ├── pages/                         * Contains all of our pages

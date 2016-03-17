@@ -27,24 +27,34 @@ declare var Connection: any;
       display: block;
     }
   `],
-  template: `
-    <p>No internet connection </p>
-  `,
+  template: '<p>No internet connection</p>',
 })
 export class NetworkComponent {
+  public timeout: number = 5000;
   constructor(public el: ElementRef, public renderer: Renderer) {
 
     if (navigator.connection) {
 
       document.addEventListener("offline", () => {
-        renderer.setElementClass(el.nativeElement, 'isActive', true);
+        this.show();
       }, false);
 
       document.addEventListener("online", () => {
-        renderer.setElementClass(el.nativeElement, 'isActive', false);
+        this.hide();
       }, false);
 
     }
+  }
+
+  show() {
+    this.renderer.setElementClass(this.el.nativeElement, 'isActive', true);
+    setTimeout(() => {
+      this.hide()
+    }, this.timeout);
+  }
+
+  hide() {
+    this.renderer.setElementClass(this.el.nativeElement, 'isActive', false);
   }
   /*
   checkConnection() {
