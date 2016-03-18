@@ -6,6 +6,8 @@ import {NetworkComponent} from './global/components/network/network';
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core';
 
+declare var StatusBar: any;
+
 @App({
   template: `
     <network-connection></network-connection>
@@ -33,8 +35,9 @@ export class MyApp {
       // For example, we might change the StatusBar color. This one below is
       // good for dark backgrounds and light text:
       // StatusBar.setStyle(StatusBar.LIGHT_CONTENT)
-
-      // new NetworkHelper();
+      if (typeof StatusBar != 'undefined') {
+        StatusBar.styleDefault();
+      }
 
     });
   }
