@@ -1,25 +1,24 @@
-import {Page, Alert, NavController} from 'ionic-angular';
+import {Platform, Page, Alert, NavController} from 'ionic-angular';
+import {Camera} from 'ionic-native';
 
 // Tell typescript to not output errors for global variables.
-declare var navigator: any;
-declare var Camera: any;
+// declare var navigator: any;
 
 @Page({
   templateUrl: 'build/pages/upload/upload.html'
 })
 export class UploadPage {
   private options;
-  private camera;
-  constructor(private nav: NavController) {
+  constructor(private platform: Platform, private nav: NavController) {
+
     // Actual device
     if (navigator.camera) {
-      this.camera = navigator.camera;
       this.options = {
         quality: 100,
-        destinationType: Camera.DestinationType.FILE_URI,
-        sourceType: Camera.PictureSourceType.CAMERA,
+        // destinationType: Camera.DestinationType.FILE_URI,
+        // sourceType: Camera.PictureSourceType,
         correctOrientation: true,
-        encodingType: Camera.EncodingType.JPEG,
+        // encodingType: Camera.EncodingType.JPEG,
         saveToPhotoAlbum: true
       };
     }
@@ -41,17 +40,14 @@ export class UploadPage {
       return;
     }
 
-    this.camera.getPicture(
-      (imagePath) => {
+    Camera.getPicture(this.options)
+      .then(imagePath => {
         var image: any = document.getElementById('uploadImage');
         image.src =  imagePath;
-      },
-      (error) => {
-
+      }, (err) => {
+        console.log(err);
         modal.setMessage('Image error!');
-
         this.nav.present(modal);
-      }, this.options
-    );
+      });
   }
 }
