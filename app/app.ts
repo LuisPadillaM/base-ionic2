@@ -7,6 +7,8 @@ import {NetworkComponent} from './global/components/network/network';
 import {Type} from 'angular2/core';
 
 declare var StatusBar: any;
+declare var facebookConnectPlugin: any;
+declare var TwitterConnect: any;
 
 @App({
   template: `
@@ -39,6 +41,29 @@ export class MyApp {
         StatusBar.styleDefault();
       }
 
+      if (typeof facebookConnectPlugin != 'undefined') {
+        facebookConnectPlugin.login(['email', 'public_profile'],
+          function (response) {
+            alert('Successful login!');
+            console.log(response);
+          },
+          function loginError(error) {
+            alert('Error logging in');
+            console.error(error)
+          }
+        )
+      }
+      // if (typeof TwitterConnect != 'undefined') {
+      //   TwitterConnect.login(
+      //     function(result) {
+      //       alert('Successful login!');
+      //       console.log(result);
+      //     }, function(error) {
+      //       alert('Error logging in');
+      //       console.log(error);
+      //     }
+      //   );
+      // }
     });
   }
 }
