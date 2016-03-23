@@ -1,6 +1,7 @@
 import {IonicApp, Page, NavController} from 'ionic-angular';
 import {ProfilePage} from './profile/profile';
 import {BlankPage} from '../blank/blank';
+import {DevicePage} from '../device/device';
 
 @Page({
   templateUrl: 'build/pages/settings/settings.html'
@@ -16,6 +17,9 @@ export class SettingsPage {
   }
   openPage() {
     this.nav.push(BlankPage);
+  }
+  openDevicePage() {
+    this.nav.push(DevicePage);
   }
   showLoader() {
     this.loading.show();
