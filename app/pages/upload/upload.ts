@@ -2,7 +2,10 @@ import {Platform, Page, Alert, NavController} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 
 // Tell typescript to not output errors for global variables.
-// declare var navigator: any;
+declare var navigator: any;
+
+// Resize Image
+// https://github.com/protonet/cordova-plugin-image-resizer
 
 @Page({
   templateUrl: 'build/pages/upload/upload.html'

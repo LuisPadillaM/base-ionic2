@@ -12,7 +12,7 @@ This is base setup of Ionic v2.0 and is still in development.
 * Run `npm install` from the project root.
 * Install the ionic CLI (`npm install -g ionic@beta`)
 * Install cordova camera plugin (`ionic plugin add cordova-plugin-camera`)
-* Install cordova network plugin (`cordova-plugin-network-information`)
+* Install cordova network plugin (`ionic plugin add cordova-plugin-network-information`)
 * Run `ionic serve` in a terminal from the project root.
 * Run in device `ionic run android --device` in a terminal from the project root.
 * Enjoy

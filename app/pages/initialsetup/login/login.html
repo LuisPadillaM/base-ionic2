@@ -1,0 +1,39 @@
+<ion-navbar *navbar>
+    <ion-title>Login page</ion-title>
+  </ion-navbar>
+  <ion-content class="login-page">
+
+    <div class="app-logo">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=Logo&w=100&h=100" />
+    </div>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div>
+      <button full>Login</button>
+    </div>
+
+    <ion-list no-lines>
+      <ion-item item-right>
+        <button clear>forgot your password?</button>
+      </ion-item>
+    </ion-list>
+
+    <div class="links">
+      <button (click)="gotoSignupPage()" clear>don't have an account? <strong>sign up!</strong></button>
+      <button (click)="gotoHomePage()" clear>I want to explore without an account</button>
+    </div>
+
+  </ion-content>

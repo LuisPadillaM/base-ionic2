@@ -4,7 +4,6 @@ import {NotificationPage} from '../notification/notification';
 import {UploadPage} from '../upload/upload';
 import {SettingsPage} from '../settings/settings';
 
-
 @Page({
   templateUrl: 'build/pages/tabs/tabs.html'
 })
@@ -15,4 +14,11 @@ export class TabsPage {
   tabNotificationRoot: any = NotificationPage;
   tabUploadRoot: any = UploadPage;
   tabSettingsRoot: any = SettingsPage;
+
+  static tabIndex: number = 0;
+  selectedIndex: number = 0;
+
+  constructor() {
+  	this.selectedIndex = TabsPage.tabIndex;
+  }
 }

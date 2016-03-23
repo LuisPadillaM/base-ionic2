@@ -1,5 +1,7 @@
 import {App, Platform} from 'ionic-angular';
 import {TabsPage} from './pages/tabs/tabs';
+import {LoginPage} from './pages/initialsetup/login/login';
+import {SignupPage} from './pages/initialsetup/signup/signup';
 import {LoadingComponent} from './global/components/loading/loading';
 import {NetworkComponent} from './global/components/network/network';
 
@@ -17,7 +19,9 @@ declare var StatusBar: any;
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
-  rootPage: Type = TabsPage;
+  // rootPage: Type = TabsPage;
+  // rootPage: Type = SignupPage;
+  rootPage: Type = LoginPage;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {

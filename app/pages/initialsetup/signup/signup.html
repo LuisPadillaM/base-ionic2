@@ -1,0 +1,48 @@
+<ion-navbar *navbar>
+    <ion-title>Sign up page</ion-title>
+  </ion-navbar>
+  <ion-content class="signup-page">
+
+    <ion-row center>
+      <ion-col width-50><button full twitter>Twitter</button></ion-col>
+      <ion-col width-50><button full facebook>Facebook</button></ion-col>
+    </ion-row>
+
+    <div class="or">
+      <p>or</p>
+    </div>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Your email</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Create password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Your Name</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Your Nickname</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div>
+      <button full>sign up</button>
+    </div>
+
+
+    <div class="links">
+      <button (click)="gotoSignupPage()" clear>have an account? <strong> sign up!</strong></button>
+    </div>
+
+  </ion-content>
