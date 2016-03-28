@@ -4,6 +4,7 @@ import {LoginPage} from './pages/initialsetup/login/login';
 import {SignupPage} from './pages/initialsetup/signup/signup';
 import {LoadingComponent} from './global/components/loading/loading';
 import {NetworkComponent} from './global/components/network/network';
+import {PushNotificationsService} from './global/services/push_notifications';
 
 // https://angular.io/docs/ts/latest/api/core/Type-interface.html
 import {Type} from 'angular2/core';
@@ -16,6 +17,7 @@ declare var StatusBar: any;
     <ion-nav [root]="rootPage"></ion-nav>
     <loading-modal id="loading"></loading-modal>`,
   directives: [LoadingComponent, NetworkComponent],
+  providers: [PushNotificationsService],
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
 export class MyApp {
@@ -23,7 +25,7 @@ export class MyApp {
   // rootPage: Type = SignupPage;
   rootPage: Type = LoginPage;
 
-  constructor(platform: Platform) {
+  constructor(platform: Platform, pushNotifications: PushNotificationsService) {
     platform.ready().then(() => {
       // The platform is now ready. Note: if this callback fails to fire, follow
       // the Troubleshooting guide for a number of possible solutions:
@@ -43,6 +45,12 @@ export class MyApp {
         StatusBar.styleDefault();
       }
 
+      pushNotifications.init(this.handleNotifications);
+
     });
+  }
+
+  handleNotifications (jsonData) {
+    alert('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
   }
 }

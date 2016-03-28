@@ -31,7 +31,8 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-camera",
     "cordova-plugin-network-information",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "onesignal-cordova-plugin"
   ],
   "cordovaPlatforms": [
     "android",
