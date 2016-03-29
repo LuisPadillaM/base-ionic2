@@ -14,6 +14,7 @@ import {DeviceService} from '../../global/services/device';
     <button full (click)="showModel()">Model</button>
     <button full (click)="showPlatform()">Platform</button>
     <button full (click)="showVersion()">Version</button>
+    <button full (click)="showSerial()">Serial</button>
   </ion-content>`,
   providers: [DeviceService]
 })
@@ -32,5 +33,8 @@ export class DevicePage {
   }
   showVersion(): void {
     alert(this.device.version());
+  }
+  showSerial(): void {
+    alert(this.device.serial());
   }
 }
