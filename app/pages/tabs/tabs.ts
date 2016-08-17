@@ -1,24 +1,22 @@
-import {Page} from 'ionic-angular';
+import {Component} from '@angular/core';
 import {HomePage} from '../home/home';
-import {NotificationPage} from '../notification/notification';
-import {UploadPage} from '../upload/upload';
-import {SettingsPage} from '../settings/settings';
+import {AboutPage} from '../about/about';
+import {ContactPage} from '../contact/contact';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  tabHomeRoot: any = HomePage;
-  tabNotificationRoot: any = NotificationPage;
-  tabUploadRoot: any = UploadPage;
-  tabSettingsRoot: any = SettingsPage;
 
-  static tabIndex: number = 0;
-  selectedIndex: number = 0;
+  private tab1Root: any;
+  private tab2Root: any;
+  private tab3Root: any;
 
   constructor() {
-  	this.selectedIndex = TabsPage.tabIndex;
+    // this tells the tabs component which Pages
+    // should be each tab's root Page
+    this.tab1Root = HomePage;
+    this.tab2Root = AboutPage;
+    this.tab3Root = ContactPage;
   }
 }
