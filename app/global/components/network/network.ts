@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer } from 'angular2/core';
+import { Component, ElementRef, Renderer } from '@angular/core';
 // Tell typescript to not output errors for global variables.
 declare var navigator: any;
 declare var Connection: any;
