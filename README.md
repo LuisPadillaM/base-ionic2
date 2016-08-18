@@ -8,31 +8,64 @@ This is base setup of Ionic v2.0 and is still in development.
 
 ## Getting Started
 
-* Clone this repository.
+* Install nodeJS 5.6 (Avoid use version 6, It could cause an unexpected behavior)
 * Run `npm install` from the project root.
+* Install Cordova (`npm install -g cordova`)
 * Install the ionic CLI (`npm install -g ionic@beta`)
-* Install cordova camera plugin (`ionic plugin add cordova-plugin-camera`)
-* Install cordova network plugin (`ionic plugin add cordova-plugin-network-information`)
+* Install TypeScript definition manager (`npm install typings -g`)
+* Run `typings install`
+* Create resources `ionic resources`
+* Add Android platform `ionic platform add android`
+* Add iOS platform after `ionic platform add ios`
 * Run `ionic serve` in a terminal from the project root.
-* Run in device `ionic run android --device` in a terminal from the project root.
-* Enjoy
+* Run `ionic plugin add [plugin-name] --save` to add new plugins
 
-## Use Cases
+Before running on android devices
+* Install [Android Studio](http://developer.android.com/intl/es/sdk/index.html)
+* Open Android SDK Manager and install:
+  * Android SDK Tools
+  * Android SDK Platform-tools
+  * Android SDK Build-tools
+  * System images (in case you need to use Android Emulator)
+  * Android Support Repository
+  * Android Support Library
+  * Google Play services
+  * Google Repository
+  * Intel x86 Emulator Accelerator (in case you need to use Android Emulator)
 
-<!-- * Menu - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/app.html#L3-L21) |
-[code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/app.js#L27-L32) ]
-* Tabs - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/tabs/tabs.html) | [code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/tabs/tabs.js) ]
-* Segments - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.html#L6-L13) | [code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.js#L24) ]
-* Search bar - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.html#L24-L29) | [code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.js#L36-L41) ]
-* Modals - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule-filter/schedule-filter.html) | [code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.js#L43-L52) ]
-* Action Sheet - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/speaker-list/speaker-list.html#L32) | [code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/speaker-list/speaker-list.js#L34-L55) ]
-* Toggle / switches - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule-filter/schedule-filter.html#L22-L25) ]
-* Slides - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/tutorial/tutorial.html#L2-L14) |
-[code](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/tutorial/tutorial.js#L14-L39) ]
-* Cards - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/speaker-list/speaker-list.html#L9-L42) ]
-* Sticky headers - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/schedule/schedule.html#L34-L36) ]
-* Grid - [ [template](https://github.com/hangarlab/base-ionic2-ts/blob/master/app/pages/login/login.html#L26-L33) ]
- -->
+## Gulp tasks
+
+* To include SVGs in the HTML run: `gulp svg`
+
+If your are developing just use all gulp tasks as usual.
+* For qa use: `gulp build --env=qa`
+* For production use: `gulp build --env=prod`
+
+## NPM commands
+* `npm run iose` = `ionic run ios --emulator`
+* `npm run iosd` = `ionic run ios --device`
+* `npm run andd` = `ionic run android --device`
+* `npm run ande` = `ionic run android --emulator`    
+* `builddev: ionic build --env=dev`
+* `buildqa: ionic build --env=qa`
+
+## Environments
+
+Theres a gulp task to change endpoints and keys by environment. In the appconfig file add your `dev.ts`, `qa.ts` and `prod.ts` with the data you need. For example:
+
+```
+let Config = {
+  baseOauthUrl: 'http://xxxxxxxx-xxxx/xxx',
+  baseApiUrl: 'http://xxxxxxxx-xxxx/xxx',
+  keys: {
+    oneSignal: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+    projectNumber: 'xxxxxxxxxxxx'
+  }
+};
+
+export default Config;
+```
+
 ## File Structure of App
 
 ```
@@ -111,6 +144,10 @@ base-ionic-ts/
 ├── ionic.config.js                    * Ionic configuration file
 ├── LICENSE                            * Apache License
 ├── package.json                       * Our javascript dependencies
-├── README.md                          * This file
-└── webpack.config.js                  * Webpack configuration file
+└── README.md                          * This file
 ```
+
+## Best practice links
+- [Angular 2 style guide](https://angular.io/styleguide)
+- [Ionic FAQ](http://ionicframework.com/docs/v2/faq/)
+- [Ionic utilities](http://ionicframework.com/docs/v2/theming/css-utilities/)
