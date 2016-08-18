@@ -16,7 +16,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "del": "2.2.0",
+    "del": "^2.2.0",
     "gulp": "3.9.1",
     "gulp-watch": "4.3.5",
     "ionic-gulp-browserify-typescript": "2.0.0",
@@ -26,7 +26,11 @@
     "ionic-gulp-scripts-copy": "^2.0.0",
     "ionic-gulp-tslint": "^1.0.0",
     "tslint-ionic-rules": "^0.0.3",
-    "run-sequence": "1.1.5"
+    "run-sequence": "1.1.5",
+    "gulp-rename": "1.2.2",
+    "gulp-inject": "^4.0.0",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-svgstore": "^6.0.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
@@ -45,5 +49,13 @@
     }
   ],
   "name": "base-ionic2-ts",
-  "description": "This is a base project to start working on ionic 2"
+  "description": "This is a base project to start working on ionic 2",
+  "scripts": {
+    "iose": "ionic run ios --emulator",
+    "iosd": "ionic run ios --device",
+    "andd": "ionic run android --device",
+    "ande": "ionic run android --emulator",
+    "builddev": "gulp build --env=dev",
+    "buildqa": "gulp build --env=qa"
+  }
 }
