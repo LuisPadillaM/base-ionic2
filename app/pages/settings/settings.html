@@ -1,29 +1,16 @@
-<ion-navbar *navbar>
-  <ion-title>
-    Settings
-  </ion-title>
-</ion-navbar>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
 
-<ion-content padding>
-  <br>
+<ion-content>
   <ion-list>
-     <button ion-item (click)="openProfile()">
-      Profile & personal info
-    </button>
     <button ion-item (click)="openDevicePage()">
       Device Info
     </button>
-    <button ion-item (click)="openPage()">
-      Notifications
-    </button>
-    <button ion-item (click)="showLoader()">
-      Show Loader
-    </button>
-    <button ion-item (click)="showOneSignalId()">
-      Show One Signal Id
-    </button>
+    <ion-item (click)="logout()">
+      Log Out
+    </ion-item>
   </ion-list>
-
-
-
 </ion-content>
