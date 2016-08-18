@@ -1,51 +1,48 @@
-import {Page, NavController} from 'ionic-angular';
-import {FeedService} from '../../global/services/feed';
-import {SearchPage} from '../search/search';
+/**
+  * @name HomePage
+  * @description
+  * This class is an example to create new pages following best practices
+  */
 
-@Page({
+/**
+  * Best Practice:
+  * Import must be in alphabetical order
+  * Reference: https://angular.io/styleguide#!#application-structure
+  */
+// ionic and angular imports
+import { Component }     from '@angular/core';
+import { NavController } from 'ionic-angular';
+
+// constants imports
+
+// components imports
+
+// directives imports
+
+// pipes imports
+
+// services imports
+import { AlertService } from '../../global/services/alert.service';
+
+/**
+  * Best Practice:
+  * If the HTML template is small, it can be included in this file using template: `<p>Example</p>`
+  */
+@Component({
   templateUrl: 'build/pages/home/home.html',
-  providers: [FeedService]
+  providers  : [ AlertService ]
 })
 export class HomePage {
-  private hash: string;
-  private items: any[];
+  // constructor params should be in alphabetical order
+  constructor(private alert:AlertService) { }
 
-  constructor(private nav: NavController, private feed: FeedService) {
-    this.hash = 'my';
-    this.initializeItems();
-  }
 
-  // Get feed from service
-  getFeed() {
-    return this.feed.getFeed();
-  }
-
-  initializeItems() {
-    this.items = this.getFeed();
-  }
-
-  openSearchPage() {
-    this.nav.push(SearchPage);
-  }
-
-  getItems(searchbar) {
-    // Reset items back to all of the items
-    this.initializeItems();
-
-    // set q to the value of the searchbar
-    let q = searchbar.value;
-
-    // if the value is an empty string don't filter the items
-    if (q.trim() == '') {
-      return;
-    }
-
-    // debugger;
-    this.items = this.items.filter((v) => {
-      if (v.product.description.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-        return true;
-      }
-      return false;
-    })
+  /**
+    * Show an alert
+    *
+    * @param {string} description  Descriptin wanted in the alert
+    */
+  showAlert(description) {
+    this.alert.basic({ subTitle: description  });
   }
 }

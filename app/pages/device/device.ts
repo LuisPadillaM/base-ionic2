@@ -1,12 +1,13 @@
-import {Page} from 'ionic-angular';
-import {DeviceService} from '../../global/services/device';
+import { Component }     from '@angular/core';
+import { DeviceService } from '../../global/services/device.service';
 
-@Page({
-  // when the component template is short use inline html
+@Component({
   template:`
-  <ion-navbar *navbar>
-    <ion-title>Device Info Page</ion-title>
-  </ion-navbar>
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Device Info Page</ion-title>
+    </ion-navbar>
+  </ion-header>
 
   <ion-content padding>
     <h2>Device Info</h2>
@@ -16,24 +17,28 @@ import {DeviceService} from '../../global/services/device';
     <button full (click)="showVersion()">Version</button>
     <button full (click)="showSerial()">Serial</button>
   </ion-content>`,
-  providers: [DeviceService]
+  providers: [ DeviceService ]
 })
 export class DevicePage {
-  constructor(private device: DeviceService) {
 
-  }
+  constructor(private device: DeviceService) { }
+
   showUUID(): void {
     alert(this.device.uuid());
   }
+
   showModel(): void {
     alert(this.device.model());
   }
+
   showPlatform(): void {
     alert(this.device.platform());
   }
+
   showVersion(): void {
     alert(this.device.version());
   }
+
   showSerial(): void {
     alert(this.device.serial());
   }

@@ -1,24 +1,38 @@
-import {Page} from 'ionic-angular';
-import {HomePage} from '../home/home';
-import {NotificationPage} from '../notification/notification';
-import {UploadPage} from '../upload/upload';
-import {SettingsPage} from '../settings/settings';
+import { Component }              from '@angular/core';
+import { Events, NavController }  from 'ionic-angular';
 
-@Page({
+import { LoginPage }    from '../initialsetup/login/login';
+import { HomePage }     from '../home/home';
+import { AboutPage }    from '../about/about';
+import { NotificationPage } from '../notification/notification';
+import { SettingsPage }     from '../settings/settings';
+
+
+@Component({
   templateUrl: 'build/pages/tabs/tabs.html'
 })
 export class TabsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  tabHomeRoot: any = HomePage;
-  tabNotificationRoot: any = NotificationPage;
-  tabUploadRoot: any = UploadPage;
-  tabSettingsRoot: any = SettingsPage;
 
-  static tabIndex: number = 0;
-  selectedIndex: number = 0;
+  private tab1Root: any;
+  private tab2Root: any;
+  private tab3Root: any;
+  private tab4Root: any;
 
-  constructor() {
-  	this.selectedIndex = TabsPage.tabIndex;
+  constructor(private events:Events, private nav:NavController) {
+    this.tab1Root = HomePage;
+    this.tab2Root = AboutPage;
+    this.tab3Root = NotificationPage;
+    this.tab4Root = SettingsPage;
   }
+
+  ngAfterViewInit() {
+    let animation = {
+          animate: true,
+          direction: 'back'
+        };
+    this.events.subscribe('event:logout', ()=>{
+      this.nav.setRoot(LoginPage, null, animation);
+    });
+  }
+
 }
