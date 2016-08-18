@@ -4,7 +4,8 @@ import { Events, NavController }  from 'ionic-angular';
 import { LoginPage }    from '../initialsetup/login/login';
 import { HomePage }     from '../home/home';
 import { AboutPage }    from '../about/about';
-import { SettingsPage } from '../settings/settings';
+import { NotificationPage } from '../notification/notification';
+import { SettingsPage }     from '../settings/settings';
 
 
 @Component({
@@ -15,11 +16,13 @@ export class TabsPage {
   private tab1Root: any;
   private tab2Root: any;
   private tab3Root: any;
+  private tab4Root: any;
 
   constructor(private events:Events, private nav:NavController) {
     this.tab1Root = HomePage;
     this.tab2Root = AboutPage;
-    this.tab3Root = SettingsPage;
+    this.tab3Root = NotificationPage;
+    this.tab4Root = SettingsPage;
   }
 
   ngAfterViewInit() {
