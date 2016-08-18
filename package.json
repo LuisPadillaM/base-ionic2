@@ -55,7 +55,7 @@
     "iosd": "ionic run ios --device",
     "andd": "ionic run android --device",
     "ande": "ionic run android --emulator",
-    "builddev": "gulp build --env=dev",
-    "buildqa": "gulp build --env=qa"
+    "builddev": "ionic build --env=dev",
+    "buildqa": "ionic build --env=qa"
   }
 }
