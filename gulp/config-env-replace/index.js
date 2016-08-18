@@ -6,7 +6,7 @@ module.exports = function(options) {
   var env = argv.env || 'dev';
 
   options.src = options.src || './appconfig/' + env + '.ts';
-  options.dest = options.dest || 'app/constants';
+  options.dest = options.dest || 'app/general.constant';
 
   return gulp.src(options.src)
     .pipe(rename('config.ts'))
